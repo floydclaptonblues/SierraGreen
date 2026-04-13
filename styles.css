@@ -20,16 +20,16 @@ body {
   /* Define the size of the checkboard tile (400px square) */
   background-size: 400px 400px;
   color: #dfeedd; /* light greenish text for better contrast */
-  /* Use Trebuchet MS, a humanist sans serif designed in 1996 for screen readability. Its large x‑height
-   * and clean lines make it legible at small sizes while retaining energy and personality【556277894250544†L206-L215】. */
-  font-family: 'Trebuchet MS', 'Arial', sans-serif;
+  /* Use Oswald, a condensed sans‑serif inspired by the ‘Alternate Gothic’ style, to evoke the bold look of
+   * 1990s news broadcast headline banners. The font’s narrow letterforms and tall x‑height make it
+   * striking and well‑suited for display text【690125585199853†L58-L63】. */
+  font-family: 'Oswald', 'Arial', sans-serif;
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  /* Use Trebuchet MS for headings as well. Trebuchet's strong and unmistakable appearance and high legibility
-   * allow it to work at both display sizes and small sizes【556277894250544†L206-L215】. */
-  font-family: 'Trebuchet MS', 'Arial', sans-serif;
+  /* Use Oswald for headings to emulate 1990s news broadcast banners with a condensed sans‑serif look【690125585199853†L58-L63】. */
+  font-family: 'Oswald', 'Arial', sans-serif;
   margin: 0.5em 0;
   /* Keep headings uppercase to maintain a bold marquee feel */
   text-transform: uppercase;
