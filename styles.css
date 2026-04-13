@@ -1,0 +1,283 @@
+/*
+ * Styles for Sierra Green website
+ * The design evokes a 1990s retro vibe with neon accents and pixel‑style fonts.
+ */
+
+/* -------------------------------------------------------------------------
+ * Global resets and typography
+ *
+ * Update the color palette to evoke a moody green vibe while retaining the
+ * retro, neon aesthetic. Colors are tuned to match the existing purple/blue
+ * mood but shifted into greens.  CSS custom properties could be used, but
+ * explicit values are set here for clarity.
+ */
+body {
+  margin: 0;
+  padding: 0;
+  /* Set a tiled animated GIF with a checkboard pattern (alternating logo and video) as the page
+   * background. The dark green fallback color provides depth behind the animated tiles. */
+  background: #041e0a url('images/checkboard.gif') repeat fixed;
+  /* Define the size of the checkboard tile (400px square) */
+  background-size: 400px 400px;
+  color: #dfeedd; /* light greenish text for better contrast */
+  /* Use Trebuchet MS, a humanist sans serif designed in 1996 for screen readability. Its large x‑height
+   * and clean lines make it legible at small sizes while retaining energy and personality【556277894250544†L206-L215】. */
+  font-family: 'Trebuchet MS', 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  /* Use Trebuchet MS for headings as well. Trebuchet's strong and unmistakable appearance and high legibility
+   * allow it to work at both display sizes and small sizes【556277894250544†L206-L215】. */
+  font-family: 'Trebuchet MS', 'Arial', sans-serif;
+  margin: 0.5em 0;
+  /* Keep headings uppercase to maintain a bold marquee feel */
+  text-transform: uppercase;
+  color: #6effa6; /* neon green for headings */
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #2ebd6e; /* green underlines */
+  padding-bottom: 0.25rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Hero section */
+.hero {
+  /* Hero is a marquee‑style banner with curtains, a background video and flashing neon border */
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 4px double #2ebd6e;
+}
+
+.hero h1 {
+  /* The h1 inside hero is now styled by .hero-content; this rule is retained for backward
+   * compatibility but overridden below. */
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #bdf2c7;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 5px #2ebd6e;
+}
+
+/* Content sections */
+.content-section {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  /* Add a dark semi‑transparent background behind content sections to ensure
+   * text remains legible over the animated tiled background. */
+  background-color: rgba(4, 30, 10, 0.8);
+  border: 2px solid #2ebd6e;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #133f24;
+}
+
+/* Video grid */
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.video-item {
+  text-align: center;
+  max-width: 360px;
+  background-color: rgba(6, 24, 9, 0.7);
+  border: 2px solid #2ebd6e;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px #133f24;
+}
+
+.video-caption {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #bdf2c7;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border: 3px solid #6effa6;
+  box-shadow: 0 0 10px #133f24;
+  border-radius: 4px;
+}
+
+.gallery-grid figcaption {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  color: #a8e5be;
+  text-align: center;
+}
+
+/* Shows table */
+.shows-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.shows-table th,
+.shows-table td {
+  padding: 0.75rem;
+  border: 1px solid #2ebd6e;
+}
+
+.shows-table thead {
+  background-color: #0c2f13;
+}
+
+.shows-table th {
+  color: #6effa6;
+  font-size: 1.2rem;
+}
+
+.shows-table tbody tr:nth-child(even) {
+  background-color: #0d3415;
+}
+
+.shows-table tbody tr:nth-child(odd) {
+  background-color: #0f4820;
+}
+
+.note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #9acfa3;
+  font-style: italic;
+}
+
+/* -------------------------------------------------------------------------
+ * Hero marquee & curtain animations
+ *
+ * The hero banner features a background video behind sliding stage curtains and a
+ * neon‑bordered marquee containing the site title and tagline. The curtains
+ * animate open on page load to reveal the video. The marquee border pulses
+ * through shades of neon green.
+ */
+.hero {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-bottom: 4px double #2ebd6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Animated hero background using a GIF extracted from the uploaded video */
+  background: url('images/hero_background.gif') no-repeat center center/cover;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) saturate(1.5);
+  z-index: 1;
+}
+
+/* Stage curtains */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(to right, #451009, #8a1b1b);
+}
+
+.curtain.left {
+  left: 0;
+  animation: openLeft 3s ease forwards;
+}
+
+.curtain.right {
+  right: 0;
+  animation: openRight 3s ease forwards;
+}
+
+@keyframes openLeft {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-100%); }
+}
+
+@keyframes openRight {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(100%); }
+}
+
+/* Marquee content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  padding: 1.5rem 2.5rem;
+  background-color: rgba(4, 30, 10, 0.6);
+  border: 4px solid #6effa6;
+  box-shadow: 0 0 15px #6effa6, 0 0 30px #2ebd6e;
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 10px #6effa6, 0 0 20px #2ebd6e;
+}
+
+.hero-content .tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #bdf2c7;
+  text-shadow: 0 0 5px #2ebd6e;
+}
+
+@keyframes neonPulse {
+  from {
+    box-shadow: 0 0 5px #6effa6, 0 0 10px #2ebd6e;
+    border-color: #6effa6;
+  }
+  to {
+    box-shadow: 0 0 20px #6effa6, 0 0 40px #1ada5a;
+    border-color: #1ada5a;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #041e0a;
+  border-top: 4px double #2ebd6e;
+  color: #4f8651;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .video-item iframe {
+    width: 100%;
+    height: auto;
+  }
+}
