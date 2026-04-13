@@ -1,8 +1,3 @@
-/*
- * Styles for Sierra Green website
- * The design evokes a 1990s retro vibe with neon accents and pixel‑style fonts.
- */
-
 /* -------------------------------------------------------------------------
  * Global resets and typography
  *
@@ -20,16 +15,16 @@ body {
   /* Define the size of the checkboard tile (400px square) */
   background-size: 400px 400px;
   color: #dfeedd; /* light greenish text for better contrast */
-  /* Use Oswald, a condensed sans‑serif inspired by the ‘Alternate Gothic’ style, to evoke the bold look of
-   * 1990s news broadcast headline banners. The font’s narrow letterforms and tall x‑height make it
-   * striking and well‑suited for display text【690125585199853†L58-L63】. */
-  font-family: 'Oswald', 'Arial', sans-serif;
+  /* Use Trebuchet MS, a humanist sans serif designed in 1996 for screen readability. Its large x‑height
+   * and clean lines make it legible at small sizes while retaining energy and personality【556277894250544†L206-L215】. */
+  font-family: 'Oswald', 'Trebuchet MS', Arial, sans-serif;
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  /* Use Oswald for headings to emulate 1990s news broadcast banners with a condensed sans‑serif look【690125585199853†L58-L63】. */
-  font-family: 'Oswald', 'Arial', sans-serif;
+  /* Use Trebuchet MS for headings as well. Trebuchet's strong and unmistakable appearance and high legibility
+   * allow it to work at both display sizes and small sizes【556277894250544†L206-L215】. */
+  font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
   margin: 0.5em 0;
   /* Keep headings uppercase to maintain a bold marquee feel */
   text-transform: uppercase;
@@ -38,6 +33,7 @@ h1, h2, h3 {
 
 h2 {
   font-size: 1.5rem;
+  letter-spacing: 0.06em;
   border-bottom: 2px solid #2ebd6e; /* green underlines */
   padding-bottom: 0.25rem;
 }
@@ -45,6 +41,22 @@ h2 {
 p {
   font-size: 1.2rem;
   margin: 0.5rem 0;
+}
+
+.content-section p,
+.video-caption,
+.gallery-grid figcaption,
+.shows-table,
+.note,
+.tagline {
+  font-family: 'Oswald', 'Trebuchet MS', Arial, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.hero-content .tagline {
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 /* Hero section */
@@ -239,7 +251,9 @@ p {
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
   margin: 0;
   color: #ffffff;
   text-shadow: 0 0 10px #6effa6, 0 0 20px #2ebd6e;
