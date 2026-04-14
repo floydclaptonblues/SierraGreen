@@ -1,190 +1,44 @@
-/* -------------------------------------------------------------------------
- * Global resets and typography
- *
- * Update the color palette to evoke a moody green vibe while retaining the
- * retro, neon aesthetic. Colors are tuned to match the existing purple/blue
- * mood but shifted into greens.  CSS custom properties could be used, but
- * explicit values are set here for clarity.
- */
+/* ======================================
+   Sierra Green site
+   ====================================== */
+
 body {
   margin: 0;
   padding: 0;
-  /* Set a tiled animated GIF with a checkboard pattern (alternating logo and video) as the page
-   * background. The dark green fallback color provides depth behind the animated tiles. */
   background: #041e0a url('images/checkboard.gif') repeat fixed;
-  /* Define the size of the checkboard tile (400px square) */
   background-size: 400px 400px;
-  color: #dfeedd; /* light greenish text for better contrast */
-  /* Use Trebuchet MS, a humanist sans serif designed in 1996 for screen readability. Its large x‑height
-   * and clean lines make it legible at small sizes while retaining energy and personality【556277894250544†L206-L215】. */
-  font-family: 'Oswald', 'Trebuchet MS', Arial, sans-serif;
+  color: #dfeedd;
+  font-family: 'Oswald', Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  /* Use Trebuchet MS for headings as well. Trebuchet's strong and unmistakable appearance and high legibility
-   * allow it to work at both display sizes and small sizes【556277894250544†L206-L215】. */
-  font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+  font-family: 'Anton', 'Oswald', Arial, sans-serif;
   margin: 0.5em 0;
-  /* Keep headings uppercase to maintain a bold marquee feel */
   text-transform: uppercase;
-  color: #6effa6; /* neon green for headings */
+  letter-spacing: 0.04em;
+  color: #6effa6;
 }
 
 h2 {
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  border-bottom: 2px solid #2ebd6e; /* green underlines */
+  font-size: 2rem;
+  border-bottom: 2px solid #2ebd6e;
   padding-bottom: 0.25rem;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin: 0.5rem 0;
 }
 
-.content-section p,
-.video-caption,
-.gallery-grid figcaption,
-.shows-table,
-.note,
-.tagline {
-  font-family: 'Oswald', 'Trebuchet MS', Arial, sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.hero-content .tagline {
-  font-size: 1.1rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-/* Hero section */
-.hero {
-  /* Hero is a marquee‑style banner with curtains, a background video and flashing neon border */
+.hero,
+.content-section,
+footer {
   position: relative;
-  height: 400px;
-  overflow: hidden;
-  text-align: center;
-  border-bottom: 4px double #2ebd6e;
+  z-index: 2;
 }
 
-.hero h1 {
-  /* The h1 inside hero is now styled by .hero-content; this rule is retained for backward
-   * compatibility but overridden below. */
-}
-
-.tagline {
-  font-size: 1.2rem;
-  color: #bdf2c7;
-  margin-top: 0.5rem;
-  text-shadow: 0 0 5px #2ebd6e;
-}
-
-/* Content sections */
-.content-section {
-  padding: 2rem 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
-
-  /* Add a dark semi‑transparent background behind content sections to ensure
-   * text remains legible over the animated tiled background. */
-  background-color: rgba(4, 30, 10, 0.8);
-  border: 2px solid #2ebd6e;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #133f24;
-}
-
-/* Video grid */
-.video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 1rem;
-}
-
-.video-item {
-  text-align: center;
-  max-width: 360px;
-  background-color: rgba(6, 24, 9, 0.7);
-  border: 2px solid #2ebd6e;
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-shadow: 0 0 10px #133f24;
-}
-
-.video-caption {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #bdf2c7;
-}
-
-/* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.gallery-grid img {
-  width: 100%;
-  border: 3px solid #6effa6;
-  box-shadow: 0 0 10px #133f24;
-  border-radius: 4px;
-}
-
-.gallery-grid figcaption {
-  font-size: 1rem;
-  margin-top: 0.25rem;
-  color: #a8e5be;
-  text-align: center;
-}
-
-/* Shows table */
-.shows-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 1.1rem;
-}
-
-.shows-table th,
-.shows-table td {
-  padding: 0.75rem;
-  border: 1px solid #2ebd6e;
-}
-
-.shows-table thead {
-  background-color: #0c2f13;
-}
-
-.shows-table th {
-  color: #6effa6;
-  font-size: 1.2rem;
-}
-
-.shows-table tbody tr:nth-child(even) {
-  background-color: #0d3415;
-}
-
-.shows-table tbody tr:nth-child(odd) {
-  background-color: #0f4820;
-}
-
-.note {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #9acfa3;
-  font-style: italic;
-}
-
-/* -------------------------------------------------------------------------
- * Hero marquee & curtain animations
- *
- * The hero banner features a background video behind sliding stage curtains and a
- * neon‑bordered marquee containing the site title and tagline. The curtains
- * animate open on page load to reveal the video. The marquee border pulses
- * through shades of neon green.
- */
 .hero {
   position: relative;
   height: 400px;
@@ -193,22 +47,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Animated hero background using a GIF extracted from the uploaded video */
+  isolation: isolate;
   background: url('images/hero_background.gif') no-repeat center center/cover;
 }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6) saturate(1.5);
-  z-index: 1;
-}
-
-/* Stage curtains */
 .curtain {
   position: absolute;
   top: 0;
@@ -238,28 +80,29 @@ p {
   to   { transform: translateX(100%); }
 }
 
-/* Marquee content */
 .hero-content {
   position: relative;
   z-index: 3;
   display: inline-block;
   padding: 1.5rem 2.5rem;
-  background-color: rgba(4, 30, 10, 0.6);
+  background-color: rgba(4, 30, 10, 0.66);
   border: 4px solid #6effa6;
-  box-shadow: 0 0 15px #6effa6, 0 0 30px #2ebd6e;
+  box-shadow:
+    0 0 18px rgba(110,255,166,0.55),
+    0 0 36px rgba(46,189,110,0.35),
+    inset 0 0 18px rgba(255,255,255,0.06);
   animation: neonPulse 2.5s infinite alternate;
+  text-align: center;
 }
 
 .hero-content h1 {
-  font-size: 3.2rem;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  font-size: 3rem;
   margin: 0;
   color: #ffffff;
   text-shadow: 0 0 10px #6effa6, 0 0 20px #2ebd6e;
 }
 
-.hero-content .tagline {
+.tagline {
   font-size: 1rem;
   margin-top: 0.5rem;
   color: #bdf2c7;
@@ -277,38 +120,26 @@ p {
   }
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #041e0a;
-  border-top: 4px double #2ebd6e;
-  color: #4f8651;
+.content-section {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 1.2rem auto;
+  background-color: rgba(4, 30, 10, 0.82);
+  border: 2px solid #2ebd6e;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #133f24;
+}
+
+.note {
+  margin-top: 0.5rem;
   font-size: 0.9rem;
+  color: #9acfa3;
+  font-style: italic;
 }
 
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .video-item iframe {
-    width: 100%;
-    height: auto;
-  }
-}
 /* ================================
-   EXTRA PIZZAZZ: RHOMBUS LIGHTS + SHOOTING STARS
+   EXTRA PIZZAZZ
    ================================ */
-
-body {
-  overflow-x: hidden;
-}
-
-.hero,
-.content-section,
-footer {
-  position: relative;
-  z-index: 2;
-}
 
 .sky-effects {
   position: fixed;
@@ -318,7 +149,6 @@ footer {
   z-index: 1;
 }
 
-/* SHOOTING STARS */
 .shooting-star {
   position: absolute;
   width: 180px;
@@ -363,21 +193,12 @@ footer {
     transform: translateX(0) translateY(0) rotate(-25deg);
     opacity: 0;
   }
-  8% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 1;
-  }
+  8% { opacity: 1; }
+  45% { opacity: 1; }
   100% {
     transform: translateX(140vw) translateY(32vh) rotate(-25deg);
     opacity: 0;
   }
-}
-
-/* HERO MARQUEE RHOMBUS LIGHTS */
-.hero {
-  isolation: isolate;
 }
 
 .marquee-frame {
@@ -401,13 +222,8 @@ footer {
   right: 22px;
 }
 
-.marquee-strip.top {
-  top: 10px;
-}
-
-.marquee-strip.bottom {
-  bottom: 10px;
-}
+.marquee-strip.top { top: 10px; }
+.marquee-strip.bottom { bottom: 10px; }
 
 .marquee-strip.left,
 .marquee-strip.right {
@@ -416,13 +232,8 @@ footer {
   flex-direction: column;
 }
 
-.marquee-strip.left {
-  left: 10px;
-}
-
-.marquee-strip.right {
-  right: 10px;
-}
+.marquee-strip.left { left: 10px; }
+.marquee-strip.right { right: 10px; }
 
 .marquee-strip span {
   width: 14px;
@@ -437,21 +248,10 @@ footer {
   animation: rhombusPulse 1.3s ease-in-out infinite alternate;
 }
 
-.marquee-strip span:nth-child(odd) {
-  animation-delay: 0.15s;
-}
-
-.marquee-strip span:nth-child(3n) {
-  animation-delay: 0.35s;
-}
-
-.marquee-strip span:nth-child(4n) {
-  animation-delay: 0.55s;
-}
-
-.marquee-strip span:nth-child(5n) {
-  animation-delay: 0.75s;
-}
+.marquee-strip span:nth-child(odd) { animation-delay: 0.15s; }
+.marquee-strip span:nth-child(3n) { animation-delay: 0.35s; }
+.marquee-strip span:nth-child(4n) { animation-delay: 0.55s; }
+.marquee-strip span:nth-child(5n) { animation-delay: 0.75s; }
 
 @keyframes rhombusPulse {
   0% {
@@ -471,14 +271,195 @@ footer {
   }
 }
 
-.hero-content {
+/* ================================
+   OFFSET MEDIA MOSAIC
+   ================================ */
+
+.media-section h2 {
+  margin-bottom: 1.2rem;
+}
+
+.media-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.media-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(6, 18, 10, 0.88);
+  border: 2px solid rgba(110, 255, 166, 0.35);
   box-shadow:
-    0 0 18px rgba(110,255,166,0.55),
-    0 0 36px rgba(46,189,110,0.35),
-    inset 0 0 18px rgba(255,255,255,0.06);
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(110, 255, 166, 0.12);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(110, 255, 166, 0.65);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(110, 255, 166, 0.22);
+}
+
+.media-card img,
+.media-card iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-card img {
+  object-fit: cover;
+}
+
+.media-card iframe {
+  min-height: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.media-card figcaption,
+.media-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f4fff6;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0));
+}
+
+.media-card.square {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+.media-card.wide {
+  grid-column: span 8;
+  min-height: 320px;
+}
+
+.media-card.tall {
+  grid-column: span 4;
+  min-height: 520px;
+}
+
+.offset-up {
+  transform: translateY(-22px);
+}
+
+.offset-down {
+  transform: translateY(26px);
+}
+
+.offset-up:hover,
+.offset-down:hover {
+  transform: translateY(0) scale(1.01);
+}
+
+.media-card.video.tall iframe {
+  aspect-ratio: auto;
+  height: 520px;
+}
+
+.media-card.video.wide iframe,
+.media-card.video.square iframe {
+  height: 100%;
+  min-height: 320px;
+}
+
+/* schedule */
+.shows-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+
+.shows-table th,
+.shows-table td {
+  padding: 0.75rem;
+  border: 1px solid #2ebd6e;
+  text-align: left;
+}
+
+.shows-table thead {
+  background-color: #0c2f13;
+}
+
+.shows-table th {
+  color: #6effa6;
+  font-size: 1.1rem;
+}
+
+.shows-table tbody tr:nth-child(even) {
+  background-color: #0d3415;
+}
+
+.shows-table tbody tr:nth-child(odd) {
+  background-color: #0f4820;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #041e0a;
+  border-top: 4px double #2ebd6e;
+  color: #4f8651;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+  .media-card.square,
+  .media-card.tall {
+    grid-column: span 6;
+  }
+
+  .media-card.wide {
+    grid-column: span 12;
+  }
+
+  .media-card.square,
+  .media-card.wide {
+    min-height: 300px;
+  }
+
+  .media-card.tall {
+    min-height: 440px;
+  }
+
+  .media-card.video.tall iframe {
+    height: 440px;
+  }
+
+  .offset-up,
+  .offset-down {
+    transform: none;
+  }
 }
 
 @media (max-width: 700px) {
+  .hero-content {
+    padding: 1rem 1.25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.15rem;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+  }
+
   .marquee-strip span {
     width: 10px;
     height: 10px;
@@ -490,5 +471,44 @@ footer {
 
   .shooting-star {
     width: 120px;
+  }
+
+  .media-mosaic {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .media-card.square,
+  .media-card.wide,
+  .media-card.tall {
+    grid-column: span 1;
+    min-height: auto;
+  }
+
+  .media-card img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .media-card iframe,
+  .media-card.video.tall iframe,
+  .media-card.video.wide iframe,
+  .media-card.video.square iframe {
+    height: auto;
+    min-height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .offset-up,
+  .offset-down {
+    transform: none;
+  }
+
+  .shows-table {
+    font-size: 0.92rem;
+  }
+
+  .shows-table th,
+  .shows-table td {
+    padding: 0.55rem;
   }
 }
