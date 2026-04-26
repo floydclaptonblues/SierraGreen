@@ -1,683 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SierraGreen.online - Access Restricted</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sierra Green – New Orleans Soul</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --win-bg:#008080;
-      --win-gray:#c0c0c0;
-      --win-light:#ffffff;
-      --win-dark:#808080;
-      --win-deep:#000000;
-      --title1:#000080;
-      --title2:#1084d0;
-      --text:#111;
-    }
-
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      min-height:100%;
-      background:var(--win-bg);
-      overflow-x:hidden;
-      font-family:"VT323", monospace;
-      color:var(--text);
-    }
-
-    body{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      padding:24px 16px 72px;
-      background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size:6px 6px;
-    }
-
-    .window{
-      width:min(920px, 100%);
-      background:var(--win-gray);
-      border-top:2px solid var(--win-light);
-      border-left:2px solid var(--win-light);
-      border-right:2px solid var(--win-deep);
-      border-bottom:2px solid var(--win-deep);
-      box-shadow:4px 4px 0 rgba(0,0,0,.35);
-      position:relative;
-      z-index:2;
-    }
-
-    .titlebar{
-      height:32px;
-      background:linear-gradient(90deg,var(--title1),var(--title2));
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 6px 0 8px;
-      font-size:24px;
-      letter-spacing:.5px;
-    }
-
-    .title{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .win-icon{
-      width:18px;
-      height:18px;
-      background:
-        linear-gradient(90deg,#ff0000 0 50%, #00ff00 50% 100%);
-      border:1px solid #fff;
-      box-shadow:inset -1px -1px 0 #000;
-    }
-
-    .title-buttons{
-      display:flex;
-      gap:3px;
-    }
-
-    .title-buttons span{
-      width:22px;
-      height:20px;
-      background:var(--win-gray);
-      border-top:2px solid var(--win-light);
-      border-left:2px solid var(--win-light);
-      border-right:2px solid var(--win-deep);
-      border-bottom:2px solid var(--win-deep);
-      color:#000;
-      display:grid;
-      place-items:center;
-      font-size:16px;
-      line-height:1;
-    }
-
-    .window-body{
-      padding:16px;
-    }
-
-    .panel{
-      background:#bdbdbd;
-      border-top:2px solid var(--win-dark);
-      border-left:2px solid var(--win-dark);
-      border-right:2px solid var(--win-light);
-      border-bottom:2px solid var(--win-light);
-      padding:14px;
-    }
-
-    .content-grid{
-      display:grid;
-      grid-template-columns:340px 1fr;
-      gap:16px;
-      align-items:start;
-    }
-
-    .gif-wrap{
-      background:#000;
-      border-top:2px solid var(--win-dark);
-      border-left:2px solid var(--win-dark);
-      border-right:2px solid var(--win-light);
-      border-bottom:2px solid var(--win-light);
-      padding:8px;
-    }
-
-    .scene{
-      position:relative;
-      width:100%;
-      aspect-ratio:4 / 3;
-      background:linear-gradient(to bottom, #07142e 0 60%, #4e4e4e 60% 100%);
-      overflow:hidden;
-      image-rendering:pixelated;
-      border:2px solid #444;
-    }
-
-    .scene .floor{
-      position:absolute;
-      left:0; right:0; bottom:0;
-      height:38%;
-      background:linear-gradient(to bottom,#7e7e7e 0,#636363 100%);
-      box-shadow:inset 0 4px 0 rgba(255,255,255,.15);
-    }
-
-    .window-back{
-      position:absolute;
-      top:14px;
-      left:16px;
-      width:92px;
-      height:52px;
-      background:#93c8ff;
-      border:4px solid #d8f1ff;
-      box-shadow:inset 0 -12px 0 rgba(255,255,255,.18);
-    }
-
-    .window-back:after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(45deg, transparent 44%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.35) 50%, transparent 51%);
-    }
-
-    .desk{
-      position:absolute;
-      left:36px;
-      right:36px;
-      bottom:38px;
-      height:24px;
-      background:#7a4b1f;
-      border-top:4px solid #aa7440;
-      box-shadow:inset 0 -4px 0 rgba(0,0,0,.25);
-    }
-
-    .desk:before,.desk:after{
-      content:"";
-      position:absolute;
-      width:10px;
-      height:34px;
-      background:#5c3615;
-      bottom:-34px;
-    }
-
-    .desk:before{left:10px}
-    .desk:after{right:10px}
-
-    .monitor{
-      position:absolute;
-      width:54px;
-      height:42px;
-      left:50%;
-      margin-left:-27px;
-      bottom:66px;
-      background:#d9d9d9;
-      border:4px solid #f3f3f3;
-      border-right-color:#777;
-      border-bottom-color:#777;
-    }
-
-    .monitor .screen{
-      position:absolute;
-      left:5px; right:5px; top:5px; bottom:8px;
-      background:#0b1024;
-      overflow:hidden;
-    }
-
-    .monitor .screen:before{
-      content:"SEND MAIL";
-      position:absolute;
-      left:4px;
-      top:8px;
-      font-family:"Press Start 2P", monospace;
-      font-size:7px;
-      color:#59ff95;
-      animation:blinkText 1s steps(2,end) infinite;
-    }
-
-    .monitor .base{
-      position:absolute;
-      width:24px;
-      height:7px;
-      left:50%;
-      transform:translateX(-50%);
-      bottom:-11px;
-      background:#9e9e9e;
-      border:2px solid #efefef;
-      border-right-color:#666;
-      border-bottom-color:#666;
-    }
-
-    .tower{
-      position:absolute;
-      width:22px;
-      height:40px;
-      left:calc(50% + 44px);
-      bottom:52px;
-      background:#d3d3d3;
-      border:3px solid #f2f2f2;
-      border-right-color:#666;
-      border-bottom-color:#666;
-    }
-
-    .tower:before{
-      content:"";
-      position:absolute;
-      width:8px;height:3px;
-      background:#23ff87;
-      left:5px;top:8px;
-      box-shadow:0 8px 0 #2da8ff;
-    }
-
-    .chair-left,.chair-right{
-      position:absolute;
-      width:28px;
-      height:20px;
-      background:#2d2d2d;
-      bottom:36px;
-    }
-
-    .chair-left{ left:58px; }
-    .chair-right{ right:58px; }
-
-    .chair-left:before,.chair-right:before{
-      content:"";
-      position:absolute;
-      width:24px;height:20px;
-      left:2px; bottom:14px;
-      background:#3f3f3f;
-    }
-
-    .person{
-      position:absolute;
-      width:34px;
-      height:70px;
-      bottom:52px;
-    }
-
-    .person .head{
-      position:absolute;
-      width:20px;
-      height:20px;
-      left:7px;
-      top:0;
-      background:#f2c69f;
-      border:2px solid rgba(0,0,0,.25);
-    }
-
-    .person .body{
-      position:absolute;
-      width:24px;
-      height:24px;
-      left:5px;
-      top:22px;
-      border:2px solid rgba(0,0,0,.25);
-    }
-
-    .person .arm{
-      position:absolute;
-      width:8px;
-      height:18px;
-      top:24px;
-      background:inherit;
-      border:2px solid rgba(0,0,0,.18);
-    }
-
-    .person .arm.left{ left:0; }
-    .person .arm.right{ right:0; }
-
-    .person .leg{
-      position:absolute;
-      width:8px;
-      height:20px;
-      bottom:0;
-      background:#263238;
-      border:2px solid rgba(0,0,0,.18);
-    }
-
-    .person .leg.left{ left:8px; }
-    .person .leg.right{ right:8px; }
-
-    .ryan{
-      left:56px;
-    }
-
-    .ryan .hair{
-      position:absolute;
-      width:22px;
-      height:8px;
-      left:6px;
-      top:-2px;
-      background:#5a3519;
-    }
-
-    .ryan .body,
-    .ryan .arm{
-      background:#2d72d9;
-    }
-
-    .mewtwo{
-      right:56px;
-    }
-
-    .mewtwo .head{
-      background:#d8c2ff;
-    }
-
-    .mewtwo .crest{
-      position:absolute;
-      width:10px;height:8px;
-      right:2px; top:-3px;
-      background:#8c5cff;
-    }
-
-    .mewtwo .body,
-    .mewtwo .arm{
-      background:#b694ff;
-    }
-
-    .mewtwo .tail{
-      position:absolute;
-      width:26px;
-      height:6px;
-      background:#7a42ff;
-      right:-18px;
-      top:44px;
-      transform:rotate(28deg);
-      border-radius:3px;
-    }
-
-    .keyboard{
-      position:absolute;
-      width:40px;
-      height:9px;
-      left:50%;
-      margin-left:-20px;
-      bottom:54px;
-      background:#f2f2f2;
-      border:2px solid #888;
-    }
-
-    .mail{
-      position:absolute;
-      width:18px;
-      height:12px;
-      background:#fff8d0;
-      border:2px solid #111;
-      top:56px;
-      left:50%;
-      margin-left:-8px;
-      animation:flyMail 3.2s linear infinite;
-      box-shadow:2px 2px 0 rgba(0,0,0,.25);
-    }
-
-    .mail:before{
-      content:"";
-      position:absolute;
-      left:0; right:0; top:0;
-      margin:auto;
-      width:12px;
-      height:12px;
-      border-left:2px solid #111;
-      border-bottom:2px solid #111;
-      transform:rotate(-45deg);
-      top:-5px;
-      background:transparent;
-    }
-
-    .mail.m2{ animation-delay:.8s; }
-    .mail.m3{ animation-delay:1.6s; }
-    .mail.m4{ animation-delay:2.4s; }
-
-    .status-light{
-      position:absolute;
-      width:10px;height:10px;
-      right:10px;top:10px;
-      background:#33ff88;
-      box-shadow:0 0 8px #33ff88;
-      animation:blinkLight .8s steps(2,end) infinite;
-    }
-
-    .message-panel{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height:100%;
-      justify-content:center;
-    }
-
-    .message-box{
-      background:#d4d0c8;
-      border-top:2px solid var(--win-dark);
-      border-left:2px solid var(--win-dark);
-      border-right:2px solid var(--win-light);
-      border-bottom:2px solid var(--win-light);
-      padding:18px 16px;
-      text-align:center;
-    }
-
-    .big-text{
-      font-family:"Press Start 2P", monospace;
-      color:#111;
-      font-size:clamp(12px, 1.5vw, 18px);
-      line-height:1.85;
-      letter-spacing:.5px;
-      text-shadow:1px 1px 0 #fff;
-      margin:0;
-    }
-
-    .subline{
-      font-size:28px;
-      text-align:center;
-      margin:0;
-      line-height:1.2;
-    }
-
-    .taskbar{
-      position:fixed;
-      left:0; right:0; bottom:0;
-      height:44px;
-      background:var(--win-gray);
-      border-top:2px solid var(--win-light);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:4px 6px;
-      z-index:5;
-    }
-
-    .start-btn{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 10px;
-      background:var(--win-gray);
-      border-top:2px solid var(--win-light);
-      border-left:2px solid var(--win-light);
-      border-right:2px solid var(--win-deep);
-      border-bottom:2px solid var(--win-deep);
-      font-size:26px;
-      font-weight:bold;
-      min-width:90px;
-    }
-
-    .start-logo{
-      width:16px;
-      height:16px;
-      background:
-        linear-gradient(90deg,#ff0000 0 50%, #00ff00 50% 100%),
-        linear-gradient(#ffff00 0 50%, #0000ff 50% 100%);
-      box-shadow:inset 0 0 0 1px #000;
-    }
-
-    .task-item{
-      flex:1;
-      max-width:300px;
-      height:32px;
-      display:flex;
-      align-items:center;
-      padding:0 10px;
-      background:#d8d8d8;
-      border-top:2px solid var(--win-deep);
-      border-left:2px solid var(--win-deep);
-      border-right:2px solid var(--win-light);
-      border-bottom:2px solid var(--win-light);
-      font-size:24px;
-      overflow:hidden;
-      white-space:nowrap;
-      text-overflow:ellipsis;
-    }
-
-    .clock{
-      margin-left:auto;
-      min-width:84px;
-      text-align:center;
-      background:#d8d8d8;
-      border-top:2px solid var(--win-deep);
-      border-left:2px solid var(--win-deep);
-      border-right:2px solid var(--win-light);
-      border-bottom:2px solid var(--win-light);
-      font-size:24px;
-      padding:2px 8px;
-    }
-
-    @keyframes flyMail{
-      0%{
-        transform:translate(-8px, 8px) scale(.9) rotate(-6deg);
-        opacity:0;
-      }
-      10%{ opacity:1; }
-      50%{
-        transform:translate(82px, -18px) scale(1) rotate(10deg);
-        opacity:1;
-      }
-      100%{
-        transform:translate(185px, -74px) scale(.9) rotate(18deg);
-        opacity:0;
-      }
-    }
-
-    @keyframes blinkText{
-      0%,49%{opacity:1}
-      50%,100%{opacity:.35}
-    }
-
-    @keyframes blinkLight{
-      0%,49%{opacity:1}
-      50%,100%{opacity:.3}
-    }
-
-    @media (max-width:760px){
-      .content-grid{
-        grid-template-columns:1fr;
-      }
-
-      .titlebar{
-        font-size:20px;
-      }
-
-      .subline{
-        font-size:24px;
-      }
-
-      .window-body{
-        padding:10px;
-      }
-
-      .panel{
-        padding:10px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <main class="window" role="main" aria-label="Restricted access notice">
-    <div class="titlebar">
-      <div class="title">
-        <span class="win-icon"></span>
-        <span>SierraGreen.online</span>
-      </div>
-      <div class="title-buttons" aria-hidden="true">
-        <span>_</span>
-        <span>□</span>
-        <span>×</span>
-      </div>
-    </div>
-
-    <div class="window-body">
-      <div class="panel">
-        <div class="content-grid">
-          <div class="gif-wrap">
-            <div class="scene">
-              <div class="status-light"></div>
-              <div class="window-back"></div>
-              <div class="floor"></div>
-              <div class="desk"></div>
-              <div class="monitor">
-                <div class="screen"></div>
-                <div class="base"></div>
-              </div>
-              <div class="tower"></div>
-              <div class="keyboard"></div>
-
-              <div class="chair-left"></div>
-              <div class="chair-right"></div>
-
-              <div class="person ryan">
-                <div class="hair"></div>
-                <div class="head"></div>
-                <div class="body"></div>
-                <div class="arm left"></div>
-                <div class="arm right"></div>
-                <div class="leg left"></div>
-                <div class="leg right"></div>
-              </div>
-
-              <div class="person mewtwo">
-                <div class="crest"></div>
-                <div class="head"></div>
-                <div class="body"></div>
-                <div class="arm left"></div>
-                <div class="arm right"></div>
-                <div class="leg left"></div>
-                <div class="leg right"></div>
-                <div class="tail"></div>
-              </div>
-
-              <div class="mail"></div>
-              <div class="mail m2"></div>
-              <div class="mail m3"></div>
-              <div class="mail m4"></div>
-            </div>
-          </div>
-
-          <div class="message-panel">
-            <div class="message-box">
-              <p class="big-text">
-                ACCESS TO SIERRAGREEN.ONLINE<br>
-                TEMPORARILY RESTRICTED.<br><br>
-                PLEASE CONTACT WEBHOST PROVIDER<br>
-                RYAN &amp; MEWTWO
-              </p>
-            </div>
-
-            <p class="subline">
-              Please contact hosting administrator for service restoration.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <div class="taskbar">
-    <div class="start-btn">
-      <span class="start-logo"></span>
-      <span>Start</span>
-    </div>
-    <div class="task-item">SierraGreen.online</div>
-    <div class="clock" id="clock">12:00 PM</div>
+  <div class="sky-effects" aria-hidden="true">
+    <span class="shooting-star star-1"></span>
+    <span class="shooting-star star-2"></span>
+    <span class="shooting-star star-3"></span>
+    <span class="shooting-star star-4"></span>
+    <span class="shooting-star star-5"></span>
   </div>
 
-  <script>
-    function updateClock(){
-      const el = document.getElementById('clock');
-      const now = new Date();
-      let h = now.getHours();
-      const m = String(now.getMinutes()).padStart(2,'0');
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12 || 12;
-      el.textContent = h + ':' + m + ' ' + ampm;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  <header class="hero">
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+
+    <div class="marquee-frame" aria-hidden="true">
+      <div class="marquee-strip top">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="marquee-strip right">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span>
+      </div>
+      <div class="marquee-strip bottom">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="marquee-strip left">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Sierra Green</h1>
+      <p class="tagline">NEW ORLEANS // R&amp;B // SOUL</p>
+    </div>
+  </header>
+
+  <section id="about" class="content-section">
+    <h2>BEHIND THE VOICE</h2>
+    <p>
+      Sierra Green is a powerhouse vocalist from New Orleans’ 7th Ward who earned the moniker
+      “Queen of Frenchmen Street.” She channels her passionate, soaring voice into a blend of
+      soul, R&amp;B and jazz influences. Her band, <em>The Giants</em>, features hand-picked local
+      musicians that bring a classic yet modern sound to clubs across New Orleans and beyond.
+      In the fall of 2023 she teamed up with pianist and composer David Torkanowsky to record a
+      five-song collection, re-imagining classics like The Meters’ “Break in the Road” while
+      introducing originals such as “One Thing” and “He Called Me Baby.” Collaborations in
+      Nashville with guitarist J.D. Simo continue to shape her debut album era.
+    </p>
+  </section>
+
+  <section id="media" class="content-section media-section">
+    <h2>//Media - Mosaic\\</h2>
+    <div class="media-mosaic">
+      <figure class="media-card photo tall">
+        <img src="images/sierra_bluesblast_cover.jpg" alt="Sierra Green on the cover of Blues Blast Magazine">
+        <figcaption>Blues Blast Magazine cover</figcaption>
+      </figure>
+
+      <div class="media-card video wide">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/JBULCoq0fKg"
+          title="One Thing – Sierra Green and the Giants"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <div class="media-caption">“One Thing” – Official Video</div>
+      </div>
+
+      <figure class="media-card photo square offset-down">
+        <img src="images/sierra_throne.jpg" alt="Sierra Green singing from an ornate white and gold throne chair">
+        <figcaption>Studio portrait</figcaption>
+      </figure>
+
+      <figure class="media-card photo wide">
+        <img src="images/sierra_devon_allman.png" alt="Sierra Green performing onstage with a guitarist">
+        <figcaption>Sierra w/ Devon Allman, Devon Allman's Blues Summit</figcaption>
+      </figure>
+
+      <div class="media-card video square">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/G9iDZUpH-h8"
+          title="Sierra Green and The Giants Reel"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <div class="media-caption">Performance reel</div>
+      </div>
+
+      <figure class="media-card photo square offset-up">
+        <img src="images/sierra_green_performance.jpg" alt="Sierra Green singing live on stage">
+        <figcaption>"Sierra and the Giants" at New Orleans' Jazz and Heritage</figcaption>
+      </figure>
+
+      <div class="media-card video tall">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/ynWOOcs7C4M"
+          title="Sierra Green Spotlight"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <div class="media-caption">Spotlight performance</div>
+      </div>
+
+      <figure class="media-card photo wide">
+        <img src="images/sierra_green_band.jpg" alt="Sierra Green performing with her band the Giants">
+        <figcaption>Sierra Green &amp; the Giants Live</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="shows" class="content-section">
+    <h2>Upcoming Shows</h2>
+    <table class="shows-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Venue</th>
+          <th>Location</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apr&nbsp;23,&nbsp;2026</td>
+          <td>Sierra Green and the Giants</td>
+          <td>New Orleans' Jazz and Heritage Festival - Blues Tent</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>3:50&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>Apr&nbsp;26,&nbsp;2026</td>
+          <td>Sierra &amp; The Green Notes (Jazz)</td>
+          <td>Balcony Music Club</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>3:00&nbsp;PM&nbsp;&ndash;&nbsp;5:30&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>Apr&nbsp;30,&nbsp;2026</td>
+          <td>Sierra &amp; The Green Notes (Jazz)</td>
+          <td>Caf&eacute;&nbsp;Negril</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>6:00&nbsp;PM&nbsp;&ndash;&nbsp;9:30&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>May&nbsp;2,&nbsp;2026</td>
+          <td>Sierra Green</td>
+          <td>Original Big 7 Ball (Tickets at Door)</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>8:00&nbsp;PM&nbsp;&ndash;&nbsp;1:00&nbsp;AM</td>
+        </tr>
+        <tr>
+          <td>May&nbsp;10,&nbsp;2026</td>
+          <td>Sierra &amp; The Green Notes (Jazz)</td>
+          <td>Balcony Music Club</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>3:00&nbsp;PM&nbsp;&ndash;&nbsp;5:30&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>May&nbsp;16,&nbsp;2026</td>
+          <td>Sierra Green &amp; The Giants</td>
+          <td>Balcony Music Club</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>9:00&nbsp;PM&nbsp;&ndash;&nbsp;11:30&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>May&nbsp;24,&nbsp;2026</td>
+          <td>Sierra &amp; The Green Notes (Jazz)</td>
+          <td>Balcony Music Club</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>3:00&nbsp;PM&nbsp;&ndash;&nbsp;5:30&nbsp;PM</td>
+        </tr>
+        <tr>
+          <td>May&nbsp;30,&nbsp;2026</td>
+          <td>Sierra Green &amp; The Giants</td>
+          <td>Balcony Music Club</td>
+          <td>New&nbsp;Orleans, LA</td>
+          <td>9:00&nbsp;PM&nbsp;&ndash;&nbsp;11:30&nbsp;PM</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">Times and dates are subject to change; please check venue listings for the latest information.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Sierra Green.</p>
+  </footer>
 </body>
 </html>
