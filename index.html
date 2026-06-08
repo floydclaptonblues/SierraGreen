@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@500;700;900&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pizzazz.css">
 </head>
 <body>
   <div class="sky-effects" aria-hidden="true">
@@ -43,7 +44,15 @@
         <span>SIERRA GREEN • NEW ORLEANS SOUL • R&amp;B • JAZZ • THE GREEN NOTES • THE GIANTS • BOOKING NOW • </span>
         <span>SIERRA GREEN • NEW ORLEANS SOUL • R&amp;B • JAZZ • THE GREEN NOTES • THE GIANTS • BOOKING NOW • </span>
       </div>
-      <p class="tagline">NEW ORLEANS // R&amp;B // SOUL</p>
+      <!-- Updated tagline with more expressive copy -->
+      <p class="tagline">New Orleans soul.<br>Frenchmen Street fire.<br>Built for the big stage.</p>
+      <!-- Mood selector buttons -->
+      <div class="mood-selector">
+        <button class="mood-button active" data-mood="soul">Soul</button>
+        <button class="mood-button" data-mood="rnb">R&amp;B</button>
+        <button class="mood-button" data-mood="jazz">Jazz</button>
+        <button class="mood-button" data-mood="live">Live</button>
+      </div>
     </div>
   </header>
 
@@ -192,11 +201,69 @@
         </tr>
       </tbody>
     </table>
+    <!-- Mobile-friendly gig cards -->
+    <div class="shows-cards">
+      <div class="show-card">
+        <h3>June 4 &amp; 25, 2026</h3>
+        <p class="project">Sierra &amp; The Green Notes</p>
+        <p class="venue">Caf&eacute; Negril — New Orleans, LA</p>
+        <p class="time">6:30 PM – 9:30 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>June 6, 2026</h3>
+        <p class="project">Sierra Green &amp; The Giants</p>
+        <p class="venue">The Spotted Cat — New Orleans, LA</p>
+        <p class="time">10:00 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>June 7 &amp; 21, 2026</h3>
+        <p class="project">Sierra &amp; The Green Notes</p>
+        <p class="venue">Balcony Music Club — New Orleans, LA</p>
+        <p class="time">3:00 PM – 5:30 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>June 13 &amp; 27, 2026</h3>
+        <p class="project">Sierra Green</p>
+        <p class="venue">Balcony Music Club — New Orleans, LA</p>
+        <p class="time">9:00 PM – 11:30 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>June 17, 2026</h3>
+        <p class="project">Sierra &amp; The Green Notes</p>
+        <p class="venue">The Jazz Playhouse — New Orleans, LA</p>
+        <p class="time">7:30 PM – 10:30 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>June 20, 2026</h3>
+        <p class="project">Sierra Green &amp; The Giants</p>
+        <p class="venue">Caf&eacute; Negril — New Orleans, LA</p>
+        <p class="time">10:00 PM</p>
+      </div>
+      <div class="show-card">
+        <h3>Jazz Fest 2026</h3>
+        <p class="project">With Chris King Fisher &amp; The Kenny Neal Band</p>
+        <p class="venue">Jazz Fest — New Orleans, LA</p>
+        <p class="time">Time TBA</p>
+      </div>
+    </div>
     <p class="note">June schedule entered from Sierra’s message. Times and dates are subject to change; please check venue listings or contact Sierra before traveling.</p>
   </section>
 
   <footer>
     <p>&copy; 2026 Sierra Green. <a href="booking.html">Booking / Contact</a></p>
   </footer>
+
+  <!-- mood button interaction script -->
+  <script>
+    (function() {
+      const buttons = document.querySelectorAll('.mood-button');
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          buttons.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
