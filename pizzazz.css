@@ -1,0 +1,114 @@
+/* Stage presence enhancements for Sierra Green site */
+
+/* Add a warm stage-light overlay on the hero section */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, rgba(4,30,10,0.8) 70%),
+    linear-gradient(120deg, rgba(6,24,12,0.6), rgba(20,80,40,0.8) 60%, rgba(6,24,12,0.6));
+  animation: heroLights 14s linear infinite;
+}
+
+@keyframes heroLights {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(20deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+/* Strengthen tagline appearance */
+.hero .tagline {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  letter-spacing: 0.05em;
+  color: #f0ffe5;
+  text-transform: none;
+  text-shadow: 0 0 6px #6effa6, 0 0 14px rgba(46,189,110,0.8);
+}
+@media (max-width: 700px) {
+  .hero .tagline {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mood selector styling */
+.mood-selector {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.mood-button {
+  cursor: pointer;
+  padding: 0.45rem 0.9rem;
+  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 2px solid #6effa6;
+  background: rgba(4,30,10,0.6);
+  color: #6effa6;
+  box-shadow: 0 0 8px rgba(110,255,166,0.35);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mood-button:hover,
+.mood-button:focus {
+  background: #6effa6;
+  color: #041e0a;
+  box-shadow: 0 0 12px rgba(110,255,166,0.7), 0 0 24px rgba(110,255,166,0.35);
+}
+
+.mood-button.active {
+  background: #6effa6;
+  color: #041e0a;
+  box-shadow: 0 0 12px rgba(110,255,166,0.8), 0 0 26px rgba(110,255,166,0.45);
+}
+
+/* Mobile-friendly show cards */
+.shows-cards {
+  display: none;
+  margin-top: 1rem;
+}
+
+.show-card {
+  border: 1px solid rgba(110,255,166,0.42);
+  border-radius: 16px;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  background: rgba(4,30,10,0.88);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.36), 0 0 16px rgba(110,255,166,0.18);
+}
+
+.show-card h3 {
+  margin: 0 0 0.4rem;
+  font-family: 'Anton', 'Oswald', Arial, sans-serif;
+  font-size: 1.4rem;
+  color: #6effa6;
+  letter-spacing: 0.03em;
+}
+
+.show-card .project,
+.show-card .venue,
+.show-card .time {
+  margin: 0.15rem 0;
+  font-size: 1rem;
+  color: #eaffec;
+}
+
+@media (max-width: 700px) {
+  /* hide table, show cards on mobile */
+  .shows-table {
+    display: none;
+  }
+  .shows-cards {
+    display: block;
+  }
+}
