@@ -34,23 +34,156 @@ body {
   font-family: 'Oswald', Arial, sans-serif;
   line-height: 1.6;
   background:
-    radial-gradient(circle at 18% 8%, rgba(255, 230, 90, 0.1), transparent 28%),
-    radial-gradient(circle at 82% 14%, rgba(110, 255, 166, 0.1), transparent 30%),
-    #041e0a url('images/checkboard.gif') repeat fixed;
-  background-size: auto, auto, 400px 400px;
+    radial-gradient(circle at 18% 8%, rgba(255, 230, 90, 0.08), transparent 28%),
+    radial-gradient(circle at 82% 14%, rgba(110, 255, 166, 0.08), transparent 30%),
+    linear-gradient(180deg, #04160a 0%, #07210e 44%, #020904 100%);
+  background-attachment: fixed;
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: radial-gradient(circle at center, rgba(0,0,0,0.8), transparent 76%);
+    radial-gradient(circle at center, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(180deg, rgba(4, 30, 10, 0.18), rgba(2, 12, 5, 0.76));
+}
+
+.site-background-collage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.collage-tile {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(255, 247, 178, 0.18);
+  border-radius: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.38),
+    0 0 24px rgba(110, 255, 166, 0.08);
+  opacity: 0.14;
+  filter: saturate(1.05) contrast(1.02);
+  transform: translateZ(0);
+}
+
+.collage-wash {
+  position: absolute;
+  inset: -8%;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 230, 90, 0.07), transparent 28%),
+    radial-gradient(circle at 80% 18%, rgba(110, 255, 166, 0.08), transparent 30%),
+    linear-gradient(135deg, rgba(4, 30, 10, 0.34), rgba(2, 12, 5, 0.78));
+}
+
+.tile-1 {
+  top: -2%;
+  left: -2%;
+  width: 24vw;
+  min-width: 220px;
+  height: 34vh;
+  background-image: url('images/sierra_bluesblast_cover.jpg');
+  animation: collageFloatA 28s ease-in-out infinite alternate, collagePulse 12s ease-in-out infinite;
+}
+
+.tile-2 {
+  top: 4%;
+  right: 6%;
+  width: 28vw;
+  min-width: 250px;
+  height: 28vh;
+  background-image: url('images/sierra_throne.jpg');
+  animation: collageFloatB 24s ease-in-out infinite alternate, collagePulse 14s ease-in-out infinite 1s;
+}
+
+.tile-3 {
+  top: 34%;
+  left: 8%;
+  width: 22vw;
+  min-width: 210px;
+  height: 26vh;
+  background-image: url('images/sierra_devon_allman.png');
+  animation: collageFloatC 26s ease-in-out infinite alternate, collagePulse 13s ease-in-out infinite 2s;
+}
+
+.tile-4 {
+  top: 30%;
+  right: -4%;
+  width: 30vw;
+  min-width: 260px;
+  height: 34vh;
+  background-image: url('images/sierra_green_performance.jpg');
+  animation: collageFloatA 30s ease-in-out infinite alternate, collagePulse 15s ease-in-out infinite 1.5s;
+}
+
+.tile-5 {
+  bottom: -2%;
+  left: 2%;
+  width: 26vw;
+  min-width: 230px;
+  height: 30vh;
+  background-image: url('images/sierra_green_band.jpg');
+  animation: collageFloatB 29s ease-in-out infinite alternate, collagePulse 12s ease-in-out infinite 0.5s;
+}
+
+.tile-6 {
+  right: 10%;
+  bottom: 8%;
+  width: 22vw;
+  min-width: 210px;
+  height: 24vh;
+  background-image: url('images/sierra_jazzfest_chris_kenny.jpg');
+  animation: collageFloatC 25s ease-in-out infinite alternate, collagePulse 16s ease-in-out infinite 2.5s;
+}
+
+.tile-7 {
+  top: 58%;
+  left: 36%;
+  width: 18vw;
+  min-width: 180px;
+  height: 22vh;
+  background-image: url('images/sierra_green_group_jazzfest.jpg');
+  animation: collageFloatA 23s ease-in-out infinite alternate, collagePulse 11s ease-in-out infinite 1s;
+}
+
+.tile-8 {
+  top: 12%;
+  left: 34%;
+  width: 20vw;
+  min-width: 190px;
+  height: 22vh;
+  background-image: url('images/sierra_green_band.jpg');
+  animation: collageFloatB 27s ease-in-out infinite alternate, collagePulse 10s ease-in-out infinite 3s;
+}
+
+@keyframes collageFloatA {
+  0% { transform: translate3d(0, 0, 0) scale(1.03) rotate(-3deg); }
+  100% { transform: translate3d(3vw, 2vh, 0) scale(1.1) rotate(2deg); }
+}
+
+@keyframes collageFloatB {
+  0% { transform: translate3d(0, 0, 0) scale(1.04) rotate(2deg); }
+  100% { transform: translate3d(-3vw, 3vh, 0) scale(1.11) rotate(-2deg); }
+}
+
+@keyframes collageFloatC {
+  0% { transform: translate3d(0, 0, 0) scale(1.02) rotate(-1deg); }
+  100% { transform: translate3d(2vw, -2vh, 0) scale(1.08) rotate(3deg); }
+}
+
+@keyframes collagePulse {
+  0%, 100% { opacity: 0.11; }
+  50% { opacity: 0.2; }
 }
 
 h1,
@@ -1062,6 +1195,23 @@ footer {
     padding: 0.34rem 0.54rem;
     font-size: 0.68rem;
   }
+
+  .collage-tile {
+    width: 42vw;
+    min-width: 0;
+    height: 18vh;
+    border-radius: 18px;
+    opacity: 0.1;
+  }
+
+  .tile-1 { top: 2%; left: -10%; }
+  .tile-2 { top: 8%; right: -14%; }
+  .tile-3 { top: 30%; left: 3%; }
+  .tile-4 { top: 38%; right: -12%; }
+  .tile-5 { bottom: 8%; left: -8%; }
+  .tile-6 { right: 4%; bottom: 12%; }
+  .tile-7 { top: 60%; left: 28%; }
+  .tile-8 { top: 18%; left: 30%; }
 
   .hero-content {
     padding: 1rem 1.25rem;
