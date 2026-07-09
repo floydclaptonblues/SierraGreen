@@ -47,8 +47,8 @@ body::before {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(circle at center, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0.5) 100%),
-    linear-gradient(180deg, rgba(4, 30, 10, 0.18), rgba(2, 12, 5, 0.76));
+    radial-gradient(circle at center, rgba(0, 0, 0, 0) 34%, rgba(0, 0, 0, 0.34) 100%),
+    linear-gradient(180deg, rgba(4, 30, 10, 0.1), rgba(2, 12, 5, 0.54));
 }
 
 .site-background-collage {
@@ -63,16 +63,16 @@ body::before {
 .collage-tile {
   position: absolute;
   z-index: 1;
-  border: 1px solid rgba(255, 247, 178, 0.18);
+  border: 1px solid rgba(255, 247, 178, 0.25);
   border-radius: 26px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.38),
-    0 0 24px rgba(110, 255, 166, 0.08);
-  opacity: 0.14;
-  filter: saturate(1.05) contrast(1.02);
+    0 18px 40px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(110, 255, 166, 0.13);
+  opacity: 0.24;
+  filter: saturate(1.2) contrast(1.08) brightness(1.12);
   transform: translateZ(0);
 }
 
@@ -81,9 +81,9 @@ body::before {
   inset: -8%;
   z-index: 2;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 230, 90, 0.07), transparent 28%),
-    radial-gradient(circle at 80% 18%, rgba(110, 255, 166, 0.08), transparent 30%),
-    linear-gradient(135deg, rgba(4, 30, 10, 0.34), rgba(2, 12, 5, 0.78));
+    radial-gradient(circle at 20% 20%, rgba(255, 230, 90, 0.055), transparent 28%),
+    radial-gradient(circle at 80% 18%, rgba(110, 255, 166, 0.06), transparent 30%),
+    linear-gradient(135deg, rgba(4, 30, 10, 0.16), rgba(2, 12, 5, 0.5));
 }
 
 .tile-1 {
@@ -182,8 +182,8 @@ body::before {
 }
 
 @keyframes collagePulse {
-  0%, 100% { opacity: 0.11; }
-  50% { opacity: 0.2; }
+  0%, 100% { opacity: 0.19; }
+  50% { opacity: 0.34; }
 }
 
 h1,
@@ -567,51 +567,6 @@ footer {
 @keyframes bulbBlink {
   from { opacity: 0.58; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1.12); }
-}
-
-.sky-effects {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.shooting-star {
-  position: absolute;
-  width: 180px;
-  height: 2px;
-  opacity: 0;
-  transform: rotate(-25deg);
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(190,255,220,0.35) 35%, rgba(255,255,255,1) 100%);
-  box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 16px rgba(110,255,166,0.9);
-  animation: shootAcross 7s linear infinite;
-}
-
-.shooting-star::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #fff;
-  transform: translateY(-50%);
-  box-shadow: 0 0 10px #fff, 0 0 18px rgba(110,255,166,0.95);
-}
-
-.star-1 { top: 8%; left: -20%; animation-delay: 0s; }
-.star-2 { top: 20%; left: -30%; animation-delay: 1.8s; }
-.star-3 { top: 34%; left: -25%; animation-delay: 4.1s; }
-.star-4 { top: 12%; left: -35%; animation-delay: 5.7s; }
-.star-5 { top: 28%; left: -28%; animation-delay: 7.2s; }
-
-@keyframes shootAcross {
-  0% { transform: translateX(0) translateY(0) rotate(-25deg); opacity: 0; }
-  8% { opacity: 1; }
-  45% { opacity: 1; }
-  100% { transform: translateX(140vw) translateY(32vh) rotate(-25deg); opacity: 0; }
 }
 
 .marquee-frame {
@@ -1201,7 +1156,7 @@ footer {
     min-width: 0;
     height: 18vh;
     border-radius: 18px;
-    opacity: 0.1;
+    opacity: 0.16;
   }
 
   .tile-1 { top: 2%; left: -10%; }
@@ -1274,10 +1229,6 @@ footer {
 
   .marquee-strip {
     gap: 6px;
-  }
-
-  .shooting-star {
-    width: 120px;
   }
 
   .mood-selector {
