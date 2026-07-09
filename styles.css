@@ -1,6 +1,7 @@
 /* ======================================
    Sierra Green site
    Windows 98 Mardi Gras stage console
+   Fonts copied from BMC Live
    ====================================== */
 
 :root {
@@ -19,6 +20,8 @@
   --win-dark: #17110d;
   --win-black: #050505;
   --title-gradient: linear-gradient(90deg, #035e2f 0%, #148b43 35%, #6a2f8f 72%, #3b1c59 100%);
+  --ui-font: Chicago, Charcoal, Geneva, "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
+  --body-font: Tahoma, Verdana, Geneva, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -29,7 +32,7 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   color: var(--copy);
-  font-family: 'Oswald', Arial, sans-serif;
+  font-family: var(--body-font);
   line-height: 1.55;
   background:
     radial-gradient(circle at 15% 8%, rgba(20, 139, 67, 0.18), transparent 28%),
@@ -90,8 +93,9 @@ body::before {
 h1, h2, h3 {
   margin: 0.5em 0;
   color: var(--cream);
-  font-family: 'Anton', 'Oswald', Arial, sans-serif;
-  letter-spacing: 0.04em;
+  font-family: var(--ui-font);
+  font-weight: 900;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   text-shadow: none;
 }
@@ -101,7 +105,7 @@ h2 {
   line-height: 1;
 }
 
-p { margin: 0.5rem 0; font-size: 1.12rem; }
+p { margin: 0.5rem 0; font-size: 1.02rem; }
 a { transition: filter 0.16s ease, transform 0.16s ease; }
 
 .hero,
@@ -163,7 +167,8 @@ footer { position: relative; z-index: 2; }
   border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
   background: linear-gradient(180deg, #f2e8cf 0%, #c9b98e 100%);
   color: #07160c !important;
-  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-family: var(--ui-font);
+  font-weight: 900;
   text-decoration: none;
   text-transform: uppercase;
   box-shadow: none;
@@ -242,9 +247,10 @@ footer { position: relative; z-index: 2; }
   color: var(--cream);
   background: var(--title-gradient);
   border-bottom: 2px solid var(--win-dark);
-  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-family: var(--ui-font);
+  font-weight: 900;
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-align: left;
   text-transform: uppercase;
 }
@@ -260,9 +266,10 @@ footer { position: relative; z-index: 2; }
   position: relative;
   z-index: 4;
   color: var(--cream-soft);
-  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-family: var(--ui-font);
+  font-weight: 900;
   font-size: 0.78rem;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -295,14 +302,15 @@ footer { position: relative; z-index: 2; }
   min-width: max-content;
   padding: 0.34rem 1.15rem;
   color: var(--cream-soft);
-  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-family: var(--ui-font);
+  font-weight: 900;
   font-size: 0.76rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   animation: digitalTicker 24s linear infinite;
 }
 @keyframes digitalTicker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 
-.tagline { position: relative; z-index: 4; color: var(--copy); font-family: 'Orbitron', 'Oswald', Arial, sans-serif; font-size: 1rem; letter-spacing: 0.05em; }
+.tagline { position: relative; z-index: 4; color: var(--copy); font-family: var(--ui-font); font-weight: 900; font-size: 1rem; letter-spacing: 0.05em; }
 .arch-bulbs { display: none; }
 .mood-selector { position: relative; z-index: 4; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
 .mood-button { cursor: pointer; padding: 0.38rem 0.72rem; font-size: 0.72rem; letter-spacing: 0.08em; }
@@ -372,9 +380,10 @@ footer { position: relative; z-index: 2; }
   color: var(--cream);
   border-top: 2px solid var(--win-light);
   background: var(--title-gradient);
-  font-family: 'Orbitron', 'Oswald', Arial, sans-serif;
+  font-family: var(--ui-font);
+  font-weight: 900;
   font-size: 0.72rem;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   line-height: 1.3;
   text-transform: uppercase;
 }
@@ -413,13 +422,13 @@ footer { position: relative; z-index: 2; }
 .shows-table th,
 .shows-table td { padding: 0.72rem; border-bottom: 1px solid rgba(255,255,255,0.12); text-align: left; }
 .shows-table thead { background: var(--title-gradient); }
-.shows-table th { color: var(--cream); font-family: 'Orbitron', 'Oswald', Arial, sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.shows-table th { color: var(--cream); font-family: var(--ui-font); font-weight: 900; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .shows-table tbody tr:nth-child(even) { background-color: rgba(20,86,43,0.38); }
 .shows-table tbody tr:nth-child(odd) { background-color: rgba(59,28,89,0.28); }
 .shows-cards { display: none; margin-top: 1rem; }
 .show-card { margin-bottom: 1rem; padding: 2.4rem 1rem 1rem; position: relative; }
-.show-card::before { content: "Show Date"; position: absolute; top: 0; left: 0; right: 0; padding: 0.25rem 0.5rem; background: var(--title-gradient); border-bottom: 2px solid var(--win-dark); color: var(--cream); font-family: 'Orbitron', 'Oswald', Arial, sans-serif; font-size: 0.66rem; text-transform: uppercase; }
-.show-card h3, .show-card .date { margin: 0 0 0.4rem; color: var(--cream); font-family: 'Anton', 'Oswald', Arial, sans-serif; font-size: 1.3rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.show-card::before { content: "Show Date"; position: absolute; top: 0; left: 0; right: 0; padding: 0.25rem 0.5rem; background: var(--title-gradient); border-bottom: 2px solid var(--win-dark); color: var(--cream); font-family: var(--ui-font); font-weight: 900; font-size: 0.66rem; text-transform: uppercase; }
+.show-card h3, .show-card .date { margin: 0 0 0.4rem; color: var(--cream); font-family: var(--ui-font); font-weight: 900; font-size: 1.3rem; letter-spacing: 0.02em; text-transform: uppercase; }
 .show-card .project, .show-card .venue, .show-card .time { margin: 0.15rem 0; color: var(--copy); font-size: 1rem; }
 
 .compact-arch { width: min(690px, 84vw) !important; min-height: 178px !important; padding-top: 2.95rem !important; }
@@ -428,13 +437,13 @@ footer { position: relative; z-index: 2; }
 .booking-photo-section::before { content: "PhotoFeed.exe"; }
 .booking-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); gap: 1rem; }
 .booking-card { padding: 2.8rem 1rem 1rem; position: relative; }
-.booking-card::before { content: "Booking Window"; position: absolute; top: 0; left: 0; right: 0; padding: 0.25rem 0.5rem; color: var(--cream); background: var(--title-gradient); border-bottom: 2px solid var(--win-dark); font-family: 'Orbitron', 'Oswald', Arial, sans-serif; font-size: 0.66rem; text-transform: uppercase; }
+.booking-card::before { content: "Booking Window"; position: absolute; top: 0; left: 0; right: 0; padding: 0.25rem 0.5rem; color: var(--cream); background: var(--title-gradient); border-bottom: 2px solid var(--win-dark); font-family: var(--ui-font); font-weight: 900; font-size: 0.66rem; text-transform: uppercase; }
 .contact-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.72rem; margin-top: 1.1rem; }
 .contact-pill { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 0.68rem 0.78rem; text-align: center; font-size: 0.76rem; letter-spacing: 0.055em; }
 .booking-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .booking-photo-card { position: relative; overflow: hidden; min-height: 440px; margin: 0; border-radius: 0; }
 .booking-photo-card img { display: block; width: 100%; height: 100%; min-height: 440px; object-fit: cover; }
-.booking-photo-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.72rem 0.85rem; color: var(--cream); letter-spacing: 0.08em; text-transform: uppercase; background: var(--title-gradient); }
+.booking-photo-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.72rem 0.85rem; color: var(--cream); letter-spacing: 0.08em; text-transform: uppercase; background: var(--title-gradient); font-family: var(--ui-font); font-weight: 900; }
 
 footer {
   padding: 1rem;
@@ -474,9 +483,9 @@ footer a { color: var(--cream); }
   .tile-7 { top: 60%; left: 28%; }
   .tile-8 { top: 18%; left: 30%; }
   .hero-content.arch-title { width: min(90vw, 540px); min-height: 230px; padding: 3.1rem 1rem 1rem; }
-  .hero-content.arch-title::before { font-size: 0.52rem; letter-spacing: 0.08em; }
+  .hero-content.arch-title::before { font-size: 0.52rem; letter-spacing: 0.06em; }
   .hero-content.arch-title h1 { font-size: clamp(2.35rem, 13vw, 4rem); }
-  .park-kicker { font-size: 0.66rem; letter-spacing: 0.16em; }
+  .park-kicker { font-size: 0.66rem; letter-spacing: 0.12em; }
   .digital-scroll { width: 96%; }
   .digital-scroll span { padding: 0.32rem 0.9rem; font-size: 0.64rem; }
   h2 { font-size: 1.65rem; }
