@@ -3,148 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sierra Green – New Orleans Soul</title>
-  <link rel="stylesheet" href="styles.css?v=win98-bmcfonts-20260709">
+  <meta name="description" content="Sierra Green & The Giants — New Orleans soul, upcoming performances, official music, media, and booking.">
+  <title>Sierra Green &amp; The Giants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=artdeco-20260730">
+  <link rel="stylesheet" href="home.css?v=rebuild-20260730">
 </head>
-<body>
-  <div class="site-background-collage" aria-hidden="true">
-    <span class="collage-tile tile-1"></span>
-    <span class="collage-tile tile-2"></span>
-    <span class="collage-tile tile-3"></span>
-    <span class="collage-tile tile-4"></span>
-    <span class="collage-tile tile-5"></span>
-    <span class="collage-tile tile-6"></span>
-    <span class="collage-tile tile-7"></span>
-    <span class="collage-tile tile-8"></span>
-    <span class="collage-wash"></span>
-  </div>
+<body class="home-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="hero">
-    <div class="curtain left"></div>
-    <div class="curtain right"></div>
-
+  <div class="home-shell">
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
+      <a href="index.html" aria-current="page">Home</a>
       <a href="media.html">Media</a>
       <a href="#shows">Shows</a>
-      <a href="booking.html">Booking / Contact</a>
+      <a href="booking.html">Booking</a>
     </nav>
 
-    <div class="hero-content arch-title" aria-label="Sierra Green title banner">
-      <div class="arch-glow" aria-hidden="true"></div>
-      <div class="arch-bulbs arch-bulbs-left" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+    <header class="home-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">New Orleans Soul</p>
+        <h1 class="hero-title">Sierra Green<br>&amp; The Giants</h1>
+        <p class="hero-subhead">Soul, R&amp;B, and jazz from New Orleans.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#listen">Listen</a>
+          <a class="button" href="media.html">Watch</a>
+          <a class="button" href="#shows">Shows</a>
+          <a class="button secondary" href="booking.html">Booking</a>
+        </div>
       </div>
-      <div class="arch-bulbs arch-bulbs-right" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <p class="park-kicker">Live from New Orleans</p>
-      <h1>Sierra Green</h1>
-      <div class="digital-scroll" aria-hidden="true">
-        <span>SIERRA GREEN • NEW ORLEANS SOUL • R&amp;B • JAZZ • THE GREEN NOTES • THE GIANTS • BOOKING NOW • </span>
-        <span>SIERRA GREEN • NEW ORLEANS SOUL • R&amp;B • JAZZ • THE GREEN NOTES • THE GIANTS • BOOKING NOW • </span>
-      </div>
-      <p class="tagline">New Orleans soul.</p>
-      <div class="mood-selector">
-        <button class="mood-button active" data-mood="soul">Soul</button>
-        <button class="mood-button" data-mood="rnb">R&amp;B</button>
-        <button class="mood-button" data-mood="jazz">Jazz</button>
-        <button class="mood-button" data-mood="live">Live</button>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <section id="about" class="content-section">
-    <h2>Behind The Voice</h2>
-    <p>
-      Sierra Green is a powerhouse vocalist from New Orleans’ 7th Ward who earned the moniker
-      “Queen of Frenchmen Street.” She channels her passionate, soaring voice into a blend of
-      soul, R&amp;B and jazz influences. Her band, <em>The Giants</em>, features hand-picked local
-      musicians that bring a classic yet modern sound to clubs across New Orleans and beyond.
-      In the fall of 2023 she teamed up with pianist and composer David Torkanowsky to record a
-      five-song collection, re-imagining classics like The Meters’ “Break in the Road” while
-      introducing originals such as “One Thing” and “He Called Me Baby.” Collaborations in
-      Nashville with guitarist J.D. Simo continue to shape her debut album era.
-    </p>
-    <p class="button-row">
-      <a class="button-link" href="booking.html">Book Sierra</a>
-      <a class="button-link secondary" href="#shows">View August Schedule</a>
-    </p>
-  </section>
+    <main id="main-content">
+      <section class="panel home-section" id="shows" aria-labelledby="shows-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Live</p>
+            <h2 class="section-title" id="shows-title">Upcoming Shows</h2>
+          </div>
+          <p>Times and dates may change. Confirm with the venue before traveling.</p>
+        </div>
+        <div class="show-grid" id="show-list" aria-live="polite"></div>
+        <noscript><p>Please enable JavaScript to view the current show calendar.</p></noscript>
+      </section>
 
-  <section id="media" class="content-section media-section">
-    <h2>Media Showcase</h2>
-    <div class="media-mosaic">
-      <figure class="media-card photo tall">
-        <img src="images/sierra_bluesblast_cover.jpg" alt="Sierra Green on the cover of Blues Blast Magazine">
-        <figcaption>Blues Blast Magazine cover</figcaption>
-      </figure>
-      <div class="media-card video wide">
-        <iframe src="https://www.youtube-nocookie.com/embed/JBULCoq0fKg" title="One Thing – Sierra Green and the Giants" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div class="media-caption">“One Thing” – Official Video</div>
-      </div>
-      <figure class="media-card photo square offset-down">
-        <img src="images/sierra_throne.jpg" alt="Sierra Green singing from an ornate white and gold throne chair">
-        <figcaption>Studio portrait</figcaption>
-      </figure>
-      <figure class="media-card photo wide">
-        <img src="images/sierra_devon_allman.png" alt="Sierra Green performing onstage with a guitarist">
-        <figcaption>Sierra w/ Devon Allman, Devon Allman's Blues Summit</figcaption>
-      </figure>
-      <div class="media-card video square">
-        <iframe src="https://www.youtube-nocookie.com/embed/G9iDZUpH-h8" title="Sierra Green and The Giants Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div class="media-caption">Performance reel</div>
-      </div>
-      <figure class="media-card photo square offset-up">
-        <img src="images/sierra_green_performance.jpg" alt="Sierra Green singing live on stage">
-        <figcaption>Sierra and the Giants at New Orleans Jazz &amp; Heritage</figcaption>
-      </figure>
-      <div class="media-card video tall">
-        <iframe src="https://www.youtube-nocookie.com/embed/ynWOOcs7C4M" title="Sierra Green Spotlight" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div class="media-caption">Spotlight performance</div>
-      </div>
-      <figure class="media-card photo wide">
-        <img src="images/sierra_green_band.jpg" alt="Sierra Green performing with her band the Giants">
-        <figcaption>Sierra Green &amp; the Giants Live</figcaption>
-      </figure>
-    </div>
-    <p class="button-row">
-      <a class="button-link" href="media.html">Open the standalone media page</a>
-    </p>
-  </section>
+      <section class="panel home-section" id="listen" aria-labelledby="listen-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Stream</p>
+            <h2 class="section-title" id="listen-title">Listen</h2>
+          </div>
+          <p>Sierra Green &amp; The Giants on official streaming platforms.</p>
+        </div>
+        <div class="stream-grid">
+          <article class="stream-card">
+            <img src="images/sierra_green_band.jpg" alt="Sierra Green and The Giants performing">
+            <div>
+              <p class="eyebrow">Spotify</p>
+              <h3>Sierra Green &amp; The Giants</h3>
+              <p>Official artist page.</p>
+              <a class="button primary" href="https://open.spotify.com/artist/5YkHZEvqU8FZSHzMvUCtkO?si=FQ3XHp-uSsyGcXAhuwRrgw&amp;utm_source=sms" target="_blank" rel="noopener">Listen on Spotify</a>
+            </div>
+          </article>
+          <article class="stream-card">
+            <img src="images/sierra_green_band.jpg" alt="Sierra Green and The Giants performing">
+            <div>
+              <p class="eyebrow">Apple Music</p>
+              <h3>Sierra Green &amp; The Giants</h3>
+              <p>Official artist page.</p>
+              <a class="button primary" href="https://music.apple.com/us/artist/sierra-green-the-giants/1733674406" target="_blank" rel="noopener">Listen on Apple Music</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  <section id="shows" class="content-section">
-    <h2>August Schedule</h2>
-    <table class="shows-table">
-      <thead>
-        <tr><th>Date</th><th>Project</th><th>Venue</th><th>Location</th><th>Time</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>August&nbsp;1,&nbsp;2026</td><td>Sierra Green</td><td>The Spotted Cat</td><td>New&nbsp;Orleans, LA</td><td>10:00&nbsp;PM&nbsp;&ndash;&nbsp;Close</td></tr>
-        <tr><td>August&nbsp;2&nbsp;&amp;&nbsp;16,&nbsp;2026</td><td>Sierra &amp; The Green Notes</td><td>Balcony Music Club</td><td>New&nbsp;Orleans, LA</td><td>3:00&nbsp;PM&nbsp;&ndash;&nbsp;5:30&nbsp;PM</td></tr>
-      </tbody>
-    </table>
-    <div class="shows-cards">
-      <div class="show-card"><h3>August 1, 2026</h3><p class="project">Sierra Green</p><p class="venue">The Spotted Cat — New Orleans, LA</p><p class="time">10:00 PM – Close</p></div>
-      <div class="show-card"><h3>August 2 &amp; 16, 2026</h3><p class="project">Sierra &amp; The Green Notes</p><p class="venue">Balcony Music Club — New Orleans, LA</p><p class="time">3:00 PM – 5:30 PM</p></div>
-    </div>
-    <p class="note">August schedule entered from Sierra’s message. Times and dates are subject to change; please check venue listings or contact Sierra before traveling.</p>
-  </section>
+      <section class="panel home-section featured-grid" aria-labelledby="featured-title">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/JBULCoq0fKg" title="One Thing — Sierra Green and The Giants" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="featured-copy">
+          <p class="eyebrow">Featured Performance</p>
+          <h2 id="featured-title">One Thing</h2>
+          <p>Watch the official video, then enter the full media room for live sets, reels, and featured performances.</p>
+          <div class="button-group">
+            <a class="button primary" href="media.html">Enter the Media Room</a>
+            <a class="button" href="https://youtu.be/JBULCoq0fKg" target="_blank" rel="noopener">Open on YouTube</a>
+          </div>
+        </div>
+      </section>
 
-  <footer>
-    <p>&copy; 2026 Sierra Green. <a href="booking.html">Booking / Contact</a></p>
+      <section class="panel home-section about-grid" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">The Artist</p>
+          <h2 id="about-title">From the 7th Ward to the Stage</h2>
+          <p>Sierra Green brings the soul of New Orleans to every stage—powerful vocals, deep grooves, and a live sound shaped by R&amp;B, jazz, and the city’s musical tradition.</p>
+        </div>
+        <figure class="about-image">
+          <img src="images/sierra_devon_allman.png" alt="Sierra Green performing live on stage">
+        </figure>
+      </section>
+
+      <section class="panel home-section booking-cta" aria-labelledby="booking-title">
+        <div>
+          <p class="eyebrow">Booking &amp; Contact</p>
+          <h2 id="booking-title">Bring Sierra Green to Your Stage</h2>
+          <p>Clubs, festivals, private events, and special appearances.</p>
+        </div>
+        <div class="button-group">
+          <a class="button primary" href="tel:+15047775916">Call Sierra</a>
+          <a class="button" href="sms:+15047775916?body=Hi%20Sierra%2C%20I'd%20like%20to%20ask%20about%20booking%20you%20for%20an%20event.">Text Sierra</a>
+          <a class="button secondary" href="booking.html">Booking Details</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Sierra Green &amp; The Giants · <a href="booking.html">Booking / Contact</a></p>
   </footer>
 
-  <script>
-    (function() {
-      const buttons = document.querySelectorAll('.mood-button');
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          buttons.forEach((b) => b.classList.remove('active'));
-          btn.classList.add('active');
-        });
-      });
-    })();
-  </script>
+  <script src="shows-data.js?v=20260730"></script>
+  <script src="home.js?v=20260730"></script>
 </body>
 </html>
