@@ -3,294 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Listen to Sierra Green & The Giants and watch official videos, live performances, and featured sessions.">
+  <meta name="description" content="Listen to Sierra Green & The Giants and watch official videos, live performances, reels, and featured sessions.">
   <title>Media – Sierra Green</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=win98-bmcfonts-20260709">
-  <style>
-    :root {
-      --media-bg: #05050c;
-      --media-panel: rgba(7, 10, 24, 0.78);
-      --media-panel-strong: rgba(8, 11, 26, 0.92);
-      --media-line: rgba(255, 225, 183, 0.2);
-      --media-gold: #f4c37c;
-      --media-blue: #8dbdff;
-      --media-ink: #f7f1e8;
-      --media-muted: rgba(247, 241, 232, 0.78);
-      --media-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
-    }
-
-    * { box-sizing: border-box; }
-
-    body.media-page {
-      margin: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: var(--media-ink);
-      background:
-        radial-gradient(circle at 50% 6%, rgba(255, 224, 180, 0.14), transparent 22%),
-        radial-gradient(circle at 50% 42%, rgba(122, 68, 36, 0.13), transparent 32%),
-        linear-gradient(180deg, #05050c 0%, #080916 50%, #05050b 100%);
-    }
-
-    #theatre-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .theatre-vignette {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(255, 239, 212, 0.17), transparent 16%),
-        linear-gradient(180deg, rgba(3, 3, 8, 0.08), rgba(3, 3, 8, 0.72));
-    }
-
-    .media-shell {
-      width: min(1220px, calc(100% - 30px));
-      margin: 0 auto;
-      padding: 24px 0 72px;
-    }
-
-    .media-page .site-nav {
-      backdrop-filter: blur(14px);
-      background: rgba(8, 8, 19, 0.65);
-    }
-
-    .media-panel {
-      border: 1px solid var(--media-line);
-      border-radius: 26px;
-      background: var(--media-panel);
-      box-shadow: var(--media-shadow);
-      backdrop-filter: blur(15px);
-    }
-
-    .media-hero {
-      position: relative;
-      overflow: hidden;
-      margin-top: 24px;
-      padding: clamp(26px, 5vw, 54px);
-    }
-
-    .media-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 50% -20%, rgba(255, 231, 198, 0.2), transparent 44%),
-        linear-gradient(135deg, rgba(127, 177, 255, 0.08), rgba(244, 195, 124, 0.07));
-    }
-
-    .media-hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: end;
-    }
-
-    .media-kicker {
-      margin: 0 0 12px;
-      color: var(--media-gold);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .media-hero h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      line-height: 0.92;
-    }
-
-    .media-hero p,
-    .section-intro,
-    .stream-copy p,
-    .tv-copy p {
-      color: var(--media-muted);
-      line-height: 1.65;
-    }
-
-    .media-hero-note {
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 22px;
-      background: rgba(7, 12, 29, 0.6);
-    }
-
-    .media-hero-note strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--media-gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .media-section {
-      margin-top: 28px;
-      padding: clamp(20px, 4vw, 34px);
-    }
-
-    .media-section h2 {
-      margin: 0;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-    }
-
-    .stream-stack {
-      display: grid;
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .stream-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(8, 17, 35, 0.92), rgba(10, 35, 44, 0.86));
-    }
-
-    .stream-art {
-      width: 100px;
-      height: 100px;
-      flex: 0 0 100px;
-      overflow: hidden;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      background: #11152b;
-    }
-
-    .stream-art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .stream-copy { flex: 1; min-width: 0; }
-
-    .stream-service,
-    .tv-label {
-      display: inline-block;
-      margin-bottom: 7px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .stream-service { color: var(--media-gold); }
-    .tv-label { color: var(--media-blue); }
-
-    .stream-copy h3,
-    .tv-copy h3 {
-      margin: 0 0 7px;
-      font-size: 1.25rem;
-    }
-
-    .media-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 8px;
-      padding: 11px 17px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 999px;
-      color: var(--media-ink);
-      background: rgba(255, 255, 255, 0.05);
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .media-button.primary {
-      color: #17120b;
-      border-color: transparent;
-      background: linear-gradient(135deg, #f4c37c, #ffe3a7);
-    }
-
-    .media-button:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.26);
-    }
-
-    .tv-wall {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .tv-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(13, 15, 31, 0.97), rgba(5, 8, 20, 0.98));
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.38);
-    }
-
-    .tv-card::after {
-      content: "";
-      position: absolute;
-      inset: 9px;
-      z-index: 2;
-      pointer-events: none;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
-    }
-
-    .tv-screen {
-      position: relative;
-      z-index: 1;
-      aspect-ratio: 16 / 9;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: #000;
-    }
-
-    .tv-screen iframe {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border: 0;
-    }
-
-    .tv-copy {
-      position: relative;
-      z-index: 3;
-      padding: 18px;
-    }
-
-    .media-footer-note {
-      margin-top: 28px;
-      padding: 20px;
-      color: var(--media-muted);
-      text-align: center;
-      background: var(--media-panel-strong);
-    }
-
-    @media (max-width: 930px) {
-      .media-hero-grid,
-      .tv-wall { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 650px) {
-      .media-shell { width: min(100% - 16px, 1220px); padding-top: 12px; }
-      .media-panel { border-radius: 20px; }
-      .stream-card { align-items: flex-start; flex-direction: column; }
-      .stream-art { width: min(220px, 100%); height: auto; aspect-ratio: 1; flex-basis: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="media.css?v=artdeco-20260730">
 </head>
 <body class="media-page">
   <canvas id="theatre-canvas" aria-hidden="true"></canvas>
@@ -307,234 +26,63 @@
     <header class="media-panel media-hero">
       <div class="media-hero-grid">
         <div>
-          <p class="media-kicker">Digital Theatre Media Room</p>
-          <h1>Sierra Green Media</h1>
-          <p>Listen to Sierra Green &amp; The Giants, then step into a wall of performances, official videos, live sets, reels, and spotlight features.</p>
+          <p class="media-kicker">Media Room</p>
+          <h1>Sierra Green<br>&amp; The Giants</h1>
+          <div class="hero-divider"></div>
+          <p class="subhead">Music, videos, live performances, and official media in one place.</p>
+          <div class="hero-actions">
+            <a class="media-button primary" href="#listen">Listen</a>
+            <a class="media-button" href="#watch">Watch</a>
+          </div>
         </div>
-        <aside class="media-hero-note">
-          <strong>On the virtual stage</strong>
-          A lone microphone sits under a moving spotlight on a domed stage, framed by a simple concert-hall environment inspired by the warmth and grandeur of Carnegie Hall.
+        <aside class="hero-side-card">
+          <p class="section-kicker">Now playing</p>
+          <h2>Soul.<br>Stage.<br>Screen.</h2>
+          <p>Official streaming links above. A wall of performances below.</p>
         </aside>
       </div>
     </header>
 
     <main>
-      <section class="media-panel media-section" aria-labelledby="listen-heading">
+      <section class="media-panel media-section" id="listen" aria-labelledby="listen-heading">
+        <p class="section-kicker">Stream</p>
         <h2 id="listen-heading">Listen</h2>
-        <p class="section-intro">Official streaming destinations are stacked first for quick access.</p>
+        <p class="section-intro">Stream Sierra Green &amp; The Giants.</p>
         <div class="stream-stack">
           <article class="stream-card">
             <div class="stream-art"><img src="images/sierra_green_band.jpg" alt="Sierra Green &amp; The Giants performing"></div>
             <div class="stream-copy">
               <span class="stream-service">Spotify</span>
               <h3>Sierra Green &amp; The Giants</h3>
-              <p>Open the official artist page on Spotify.</p>
+              <p>Official artist page on Spotify.</p>
               <a class="media-button primary" href="https://open.spotify.com/artist/5YkHZEvqU8FZSHzMvUCtkO?si=FQ3XHp-uSsyGcXAhuwRrgw&amp;utm_source=sms" target="_blank" rel="noopener">Listen on Spotify</a>
             </div>
           </article>
-
           <article class="stream-card">
             <div class="stream-art"><img src="images/sierra_green_band.jpg" alt="Sierra Green &amp; The Giants performing"></div>
             <div class="stream-copy">
               <span class="stream-service">Apple Music</span>
               <h3>Sierra Green &amp; The Giants</h3>
-              <p>Open the official artist page on Apple Music.</p>
+              <p>Official artist page on Apple Music.</p>
               <a class="media-button primary" href="https://music.apple.com/us/artist/sierra-green-the-giants/1733674406" target="_blank" rel="noopener">Listen on Apple Music</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="media-panel media-section" aria-labelledby="videos-heading">
-        <h2 id="videos-heading">Video Wall</h2>
-        <p class="section-intro">Nine screens arranged as a responsive wall of televisions. Each player opens the exact video link supplied for Sierra’s media collection.</p>
+      <section class="media-panel media-section" id="watch" aria-labelledby="watch-heading">
+        <p class="section-kicker">Watch</p>
+        <h2 id="watch-heading">Video Wall</h2>
+        <p class="section-intro">Official videos, live sets, reels, and featured performances.</p>
         <div class="tv-wall" id="video-wall"></div>
       </section>
 
-      <div class="media-panel media-footer-note">
-        &copy; 2026 Sierra Green &amp; The Giants. <a href="booking.html">Booking / Contact</a>
-      </div>
+      <footer class="media-panel media-footer-note">
+        Sierra Green &amp; The Giants &mdash; <a href="booking.html">Booking / Contact</a>
+      </footer>
     </main>
   </div>
 
-  <script>
-    const videos = [
-      { id: 'r3ebhM1ugy4', label: 'Featured Video', title: 'Sierra Green & The Giants — Featured Performance' },
-      { id: 'csU1UVvtMRs', label: 'Live Set', title: 'Sierra Green — Live Performance' },
-      { id: 'D6iq9N_IOH4', label: 'Featured Video', title: 'Sierra Green & The Giants — Featured Performance' },
-      { id: 'JBULCoq0fKg', label: 'Official Video', title: 'One Thing — Sierra Green & The Giants' },
-      { id: 'ynWOOcs7C4M', label: 'Spotlight', title: 'Sierra Green Spotlight' },
-      { id: 'uTundui-67M', label: 'Live Performance', title: 'Sierra Green & The Giants — Live' },
-      { id: 'G9iDZUpH-h8', label: 'Performance Reel', title: 'Sierra Green & The Giants Reel' },
-      { id: 'MrNuYQbFqM4', label: 'Featured Video', title: 'Sierra Green & The Giants — Featured Performance' },
-      { id: 'G8TbRsOIiJc', label: 'Featured Video', title: 'Sierra Green & The Giants — Featured Performance' }
-    ];
-
-    const wall = document.getElementById('video-wall');
-    videos.forEach((video) => {
-      const card = document.createElement('article');
-      card.className = 'tv-card';
-      card.innerHTML = `
-        <div class="tv-screen">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/${video.id}"
-            title="${video.title}"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
-        <div class="tv-copy">
-          <span class="tv-label">${video.label}</span>
-          <h3>${video.title}</h3>
-          <p>Watch here in the media room or open the original video on YouTube.</p>
-          <a class="media-button" href="https://youtu.be/${video.id}" target="_blank" rel="noopener">Open on YouTube</a>
-        </div>`;
-      wall.appendChild(card);
-    });
-  </script>
-
-  <script type="module">
-    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js';
-
-    const canvas = document.getElementById('theatre-canvas');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x05050c, 10, 40);
-
-    const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 3.2, 12.5);
-    camera.lookAt(0, 1.7, 0);
-
-    scene.add(new THREE.AmbientLight(0x806778, 0.62));
-
-    const spotlight = new THREE.SpotLight(0xffefd3, 4.5, 42, Math.PI / 6, 0.48, 1.2);
-    spotlight.position.set(0, 9, 5);
-    spotlight.target.position.set(0, 1.1, 0);
-    scene.add(spotlight, spotlight.target);
-
-    const blueFill = new THREE.PointLight(0x74a8ff, 0.55, 30);
-    blueFill.position.set(-7, 2, 8);
-    scene.add(blueFill);
-
-    const amberFill = new THREE.PointLight(0xffaf62, 0.78, 26);
-    amberFill.position.set(8, 1.8, 2);
-    scene.add(amberFill);
-
-    const floor = new THREE.Mesh(
-      new THREE.CircleGeometry(17, 80),
-      new THREE.MeshPhongMaterial({ color: 0x110c17, shininess: 26, specular: 0x2c2035 })
-    );
-    floor.rotation.x = -Math.PI / 2;
-    floor.position.y = -0.36;
-    scene.add(floor);
-
-    const stage = new THREE.Mesh(
-      new THREE.SphereGeometry(4.35, 72, 48, 0, Math.PI * 2, 0, Math.PI / 2),
-      new THREE.MeshPhongMaterial({ color: 0x3a1d16, emissive: 0x140906, shininess: 58, specular: 0x704126 })
-    );
-    stage.scale.set(1, 0.24, 1);
-    stage.position.y = 0.1;
-    scene.add(stage);
-
-    const trim = new THREE.Mesh(
-      new THREE.TorusGeometry(4.36, 0.06, 18, 120),
-      new THREE.MeshBasicMaterial({ color: 0xf4c37c })
-    );
-    trim.rotation.x = Math.PI / 2;
-    trim.position.y = 0.14;
-    scene.add(trim);
-
-    const mic = new THREE.Group();
-    const metal = new THREE.MeshStandardMaterial({ color: 0xd3d4db, metalness: 0.82, roughness: 0.22 });
-    const darkMetal = new THREE.MeshStandardMaterial({ color: 0x1c1e24, metalness: 0.62, roughness: 0.36 });
-
-    const stand = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 3.25, 18), metal);
-    stand.position.y = 1.63;
-    mic.add(stand);
-
-    const boom = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.82, 16), metal);
-    boom.rotation.z = -0.55;
-    boom.position.set(0.23, 3.0, 0);
-    mic.add(boom);
-
-    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.08, 0.42, 24), darkMetal);
-    body.rotation.z = -0.55;
-    body.position.set(0.55, 3.15, 0);
-    mic.add(body);
-
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 24), metal);
-    head.scale.set(1, 1.16, 1);
-    head.position.set(0.68, 3.25, 0);
-    mic.add(head);
-
-    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.58, 0.08, 32), darkMetal);
-    base.position.y = 0.05;
-    mic.add(base);
-    scene.add(mic);
-
-    const balconies = new THREE.Group();
-    for (let i = 0; i < 8; i++) {
-      const radius = 5.7 + i * 1.12;
-      const arc = new THREE.EllipseCurve(0, 0, radius, radius * 0.43, Math.PI * 0.05, Math.PI * 0.95);
-      const points = arc.getPoints(100).map((p) => new THREE.Vector3(p.x, p.y + 0.15 + i * 0.42, -3.5 - i * 1.38));
-      const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const material = new THREE.LineBasicMaterial({ color: 0x98552e, transparent: true, opacity: 0.62 - i * 0.055 });
-      balconies.add(new THREE.Line(geometry, material));
-    }
-    scene.add(balconies);
-
-    const bulbs = new THREE.Group();
-    const bulbGeometry = new THREE.SphereGeometry(0.06, 12, 12);
-    [-1, 1].forEach((side) => {
-      for (let i = 0; i < 18; i++) {
-        const bulb = new THREE.Mesh(
-          bulbGeometry,
-          new THREE.MeshBasicMaterial({ color: i % 2 ? 0xf4c37c : 0x9fc0ff })
-        );
-        bulb.position.set(side * (5.35 + (i % 3) * 0.14), 0.8 + i * 0.38, -2.1 - i * 0.55);
-        bulbs.add(bulb);
-      }
-    });
-    scene.add(bulbs);
-
-    const particles = new THREE.BufferGeometry();
-    const count = 220;
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 26;
-      positions[i * 3 + 1] = Math.random() * 12;
-      positions[i * 3 + 2] = -Math.random() * 29;
-    }
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const dust = new THREE.Points(
-      particles,
-      new THREE.PointsMaterial({ color: 0xfbe7c6, size: 0.035, transparent: true, opacity: 0.55 })
-    );
-    scene.add(dust);
-
-    function resize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    }
-    window.addEventListener('resize', resize);
-
-    const clock = new THREE.Clock();
-    function animate() {
-      const t = clock.getElapsedTime();
-      balconies.rotation.y = Math.sin(t * 0.12) * 0.08;
-      bulbs.rotation.y = Math.sin(t * 0.15) * 0.03;
-      dust.rotation.y = t * 0.02;
-      spotlight.intensity = 4.3 + Math.sin(t * 1.7) * 0.2;
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
+  <script type="module" src="media.js?v=artdeco-20260730"></script>
 </body>
 </html>
