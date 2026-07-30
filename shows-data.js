@@ -7,7 +7,14 @@ window.SIERRA_SHOWS = [
     time: "10:00 PM–Close"
   },
   {
-    dateLabel: "August 2 & 16, 2026",
+    dateLabel: "August 2, 2026",
+    project: "Sierra & The Green Notes",
+    venue: "Balcony Music Club",
+    location: "New Orleans, LA",
+    time: "3:00–5:30 PM"
+  },
+  {
+    dateLabel: "August 16, 2026",
     project: "Sierra & The Green Notes",
     venue: "Balcony Music Club",
     location: "New Orleans, LA",
