@@ -1,0 +1,1 @@
+window.ADMIN_CONFIG = Object.freeze({owner:'floydclaptonblues',repository:'SierraGreen',branch:'main',dataPath:'shows.json',photoDirectory:'images/admin',mode:'sierra',title:'Sierra Green',publicPath:'../index.html'});
