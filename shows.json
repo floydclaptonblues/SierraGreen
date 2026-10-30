@@ -1,0 +1,41 @@
+{
+  "title": "Sierra Green & The Giants — Shows",
+  "last_updated": "2026-10-30",
+  "source_note": "Preserved entries from shows-data.js",
+  "announcement": "",
+  "shows": [
+    {
+      "date": "2026-08-01",
+      "dateLabel": "August 1, 2026",
+      "project": "Sierra Green",
+      "venue": "The Spotted Cat",
+      "location": "New Orleans, LA",
+      "time": "10:00 PM–Close",
+      "start": "22:00",
+      "photo": "",
+      "alt": ""
+    },
+    {
+      "date": "2026-08-02",
+      "dateLabel": "August 2, 2026",
+      "project": "Sierra & The Green Notes",
+      "venue": "Balcony Music Club",
+      "location": "New Orleans, LA",
+      "time": "3:00–5:30 PM",
+      "start": "15:00",
+      "photo": "",
+      "alt": ""
+    },
+    {
+      "date": "2026-08-16",
+      "dateLabel": "August 16, 2026",
+      "project": "Sierra & The Green Notes",
+      "venue": "Balcony Music Club",
+      "location": "New Orleans, LA",
+      "time": "3:00–5:30 PM",
+      "start": "15:00",
+      "photo": "",
+      "alt": ""
+    }
+  ]
+}
